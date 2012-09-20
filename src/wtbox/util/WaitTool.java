@@ -15,12 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * It uses WebDriverWait for waiting, which is the recommended best practice. 
  * 
  * @author Chon Chung, Mark Collin 
- *
- *  Note: usage example code idea link:
- *                                     http://www.deanhume.com/Home/BlogPost/selenium-webdriver---wait-for-an-element-to-load/64
- *
- *
- *
  */
 public class WaitTool {
 	
@@ -92,7 +86,7 @@ public class WaitTool {
 	  * This is to deal with dynamic pages.
 	  * 
 	  * Some sites I (Mark) have tested have required a page refresh to add additional elements to the DOM.  
-	  * Generally you wouldn’t need to do this in a typical AJAX scenario.
+	  * Generally you wouldnï¿½t need to do this in a typical AJAX scenario.
 	  *	
 	  *
 	  * @param locator - The XPath of the element you are waiting for
