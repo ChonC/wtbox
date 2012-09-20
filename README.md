@@ -48,4 +48,6 @@ Project Goals
 
 Credits
 -------
-Inspired by 
+Inspired by the following projects: 
+1.	[Ben Burton’s WebDriver Best Practice](https://github.com/benburton/presentations)
+2.	[Mark Collin's Wait Method](https://groups.google.com/forum/?fromgroups#!topic/webdriver/V9KqskkHmIs%5B1-25%5D)
