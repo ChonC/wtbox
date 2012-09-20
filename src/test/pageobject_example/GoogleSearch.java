@@ -57,11 +57,6 @@ public class GoogleSearch {
 	    }
 	    
 	    public static void testGoogleSuggest() throws Exception {
-	    	//If your Firefox is not installed in the default location 
-	    	//for your particular operating system:
-	    	//you need to Set the firefox binary path property.
-			System.setProperty("webdriver.firefox.bin", 
-	        "C:\\Programs\\Mozilla Firefox\\firefox.exe");
 			
 	        // The Firefox driver supports javascript 
 	        WebDriver driver = new FirefoxDriver();
