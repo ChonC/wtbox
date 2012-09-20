@@ -38,9 +38,8 @@ Project Goals
 
 1.	Show and teach in 10 minutes (simple and effective)
 2.	Easy to learn and use – so even a tester with little programming background can use it
-	practical solution for an average tester: do not go too advance or too detail.  
--	Java is a good language for web development, but it is not the popular web development solution compare to php or ruby.  Because most Java web solutions are towards for enterprise applications (humongous, and require steep learning curve to learn).   
-However our testing project is for an average tester not for a developer.  So, let’s make easy, less technical but more practical for testing job done.   
+	(Java is a good language for web development, but it is not the popular web development solution compare to php or ruby.  Because most Java web solutions are towards for enterprise applications (humongous, and require steep learning curve to learn).   
+         However our testing project is for an average tester not for a developer.  So, let’s make easy, less technical but more practical for testing job done.)   
 
 3.	For advanced topics: just provide information links in the further reading section. 
 
