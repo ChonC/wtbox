@@ -41,13 +41,6 @@ public class VimeoSignupTest_withPageObject {
 	/** Initialized class properties before excuting this class. */ 
 	@BeforeClass
 	public static void initialize(){
-    	//If your Firefox is not installed in the default location 
-    	//for your particular operating system:
-    	//you need to Set the firefox binary path property.
-		//@todo remove this before commit to github
-		System.setProperty("webdriver.firefox.bin", 
-        "C:\\Programs\\Mozilla Firefox\\firefox.exe");
-		
 		
 		driver = new FirefoxDriver();
 
