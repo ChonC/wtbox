@@ -44,7 +44,6 @@ public class AJAX_wait {
         //Set implicitlyWait for page to load
         driver.manage().timeouts().implicitlyWait(WaitTool.DEFAULT_WAIT_4_PAGE, TimeUnit.SECONDS);
         
-		//initialize(new FirefoxDriver(), WaitTool.DEFAULT_WAIT_4_PAGE);//set WebDriver and implicitlyWait time. 		
 	}
 	
 	/**
@@ -60,7 +59,7 @@ public class AJAX_wait {
 	 * I use WaitTool.waitForJavaScriptCondition() for waiting AJAX XMLHttpRequest received. 
 	 * 
 	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequest�s readState and status are changed.  
-     * So, we can use them as the checking condition of an AJAX call.
+         * So, we can use them as the checking condition of an AJAX call.
 	 */
 	@Test
 	public void testW3schools_AJAX(){
@@ -105,7 +104,7 @@ public class AJAX_wait {
 	 */
 	@Test
 	public void testBielu_com_AJAX()
-    {
+       {
 		driver.get("http://java.bielu.com:10080"); 
 
 		//Click the button ("Image Statistics") to load AJAX page
@@ -133,7 +132,7 @@ public class AJAX_wait {
 
 		System.out.println("directory image size: " + directory_img.getSize()); 
 		
-    }
+        }
 
 	/**
 	 * TO DO: show jquery AJAX testing demo here. 
