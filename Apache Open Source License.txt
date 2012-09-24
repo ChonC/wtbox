@@ -1,0 +1,6 @@
+wtbox: Web Testing box 
+
+Copyright [2012] [Chon Chung]
+ 
+Licensed under the Apache Open Source License, Version 2.0  
+http://www.apache.org/licenses/LICENSE-2.0
