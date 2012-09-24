@@ -42,8 +42,7 @@ public class WaitTool {
 	  * @param By -  - selector to find the element
 	  * @param int - The time in seconds to wait until returning a failure
 	  */
-	public static void waitForElement(WebDriver driver, 
-									  final By by, int timeOutInSeconds) {
+	public static void waitForElement(WebDriver driver, final By by, int timeOutInSeconds) {
 		try{	
 			//To use WebDriverWait(), we would have to nullify implicitlyWait(). 
 			//Because implicitlyWait time also set "driver.findElement()" wait time.  
@@ -76,8 +75,7 @@ public class WaitTool {
 	  * @param By -  - selector to find the element
 	  * @param int - The time in seconds to wait until returning a failure
 	  */
-	public static void waitForElementPresent(WebDriver driver, 
-									  		 final By by, int timeOutInSeconds) {
+	public static void waitForElementPresent(WebDriver driver, final By by, int timeOutInSeconds) {
 
 		try{
 			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
@@ -104,7 +102,7 @@ public class WaitTool {
 	  * This method is to deal with dynamic pages.
 	  * 
 	  * Some sites I (Mark) have tested have required a page refresh to add additional elements to the DOM.  
-	  * Generally you wouldn’t need to do this in a typical AJAX scenario.
+	  * Generally you wouldnï¿½t need to do this in a typical AJAX scenario.
 	  *	
 	  *
 	  * @param WebDriver - The driver object to use to perform this element search
@@ -141,8 +139,7 @@ public class WaitTool {
 	  * @param String - The text element we are waiting
 	  * @param int - The time in seconds to wait until returning a failure
 	  */
-	public static void waitForTextPresent(WebDriver driver, 
-			                              final String text, int timeOutInSeconds) {
+	public static void waitForTextPresent(WebDriver driver, final String text, int timeOutInSeconds) {
 
 		try{	
 			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
@@ -210,7 +207,7 @@ public class WaitTool {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-    }
+         }
 	
 
 	/**
