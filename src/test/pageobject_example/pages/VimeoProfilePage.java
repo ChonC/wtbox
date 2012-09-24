@@ -28,10 +28,6 @@ public class VimeoProfilePage  extends PageBase{
 		return driver.findElement(By.xpath("//*[@id='profile']/div[2]/h1/span")).getText(); 
 	}
 	
-	/** Log out. */ 
-	public void logOut(){
-		driver.get("https://vimeo.com/log_out"); 
-	}
 }
 
 

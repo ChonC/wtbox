@@ -3,23 +3,19 @@ package test.pageobject_example;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
+import test.pageobject_example.pages.VimeoLogoutPage;
 import test.pageobject_example.pages.VimeoProfilePage;
 import test.pageobject_example.pages.VimeoSignupPage;
-import wtbox.pages.PageBase;
 
 
 
@@ -41,7 +37,7 @@ public class VimeoSignupTest_withPageObject {
 	/** Initialized class properties before excuting this class. */ 
 	@BeforeClass
 	public static void initialize(){
-		
+	
 		driver = new FirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(9, TimeUnit.SECONDS); //set implicitlyWait
@@ -79,7 +75,7 @@ public class VimeoSignupTest_withPageObject {
 		assertEquals("The user name should be equal.", first_and_LastName, userName); 
 				
 		//logout for the next test. 
-		profilePage.logOut(); 
+		VimeoLogoutPage.logOut(driver); 
 	}
 	
 	
