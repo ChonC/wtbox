@@ -38,19 +38,12 @@ public class AJAX_wait {
 	/** Initialized class properties before executing  this test class. */ 
 	@BeforeClass
 	public static void beforeClass(){
-    	//If your Firefox is not installed in the default location 
-    	//for your particular operating system:
-    	//you need to Set the firefox binary path property.
-		//@todo remove this before commit to github
-		System.setProperty("webdriver.firefox.bin", 
-        "C:\\Programs\\Mozilla Firefox\\firefox.exe");
 		
         driver = new FirefoxDriver(); 
         
         //Set implicitlyWait for page to load
         driver.manage().timeouts().implicitlyWait(WaitTool.DEFAULT_WAIT_4_PAGE, TimeUnit.SECONDS);
         
-		//initialize(new FirefoxDriver(), WaitTool.DEFAULT_WAIT_4_PAGE);//set WebDriver and implicitlyWait time. 		
 	}
 	
 	/**
@@ -65,8 +58,8 @@ public class AJAX_wait {
 	 * Testing AJAX XMLHttpRequest wait.  
 	 * I use WaitTool.waitForJavaScriptCondition() for waiting AJAX XMLHttpRequest received. 
 	 * 
-	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequest’s readState and status are changed.  
-     * So, we can use them as the checking condition of an AJAX call.
+	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequestï¿½s readState and status are changed.  
+         * So, we can use them as the checking condition of an AJAX call.
 	 */
 	@Test
 	public void testW3schools_AJAX(){
@@ -81,7 +74,7 @@ public class AJAX_wait {
 		
 		//Wait for AJAX XMLHttpRequest received condition
 		//Note: In the called "loadXMLDoc()" function, there is "xmlhttp.readyState==4 && xmlhttp.status==200" javaScript condition. 
-		//      Upon completion of AJAX XMLHttpRequest, XMLHttpRequest’s readState and status are changed.  
+		//      Upon completion of AJAX XMLHttpRequest, XMLHttpRequestï¿½s readState and status are changed.  
 		//      So, we can use them as the checking condition of an AJAX call.  
 		//      For more info: http://www.w3schools.com/ajax/ajax_xmlhttprequest_onreadystatechange.asp
 		WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState >= 2 && xmlhttp.status == 200)", 5); 
@@ -111,7 +104,7 @@ public class AJAX_wait {
 	 */
 	@Test
 	public void testBielu_com_AJAX()
-    {
+       {
 		driver.get("http://java.bielu.com:10080"); 
 
 		//Click the button ("Image Statistics") to load AJAX page
@@ -139,7 +132,7 @@ public class AJAX_wait {
 
 		System.out.println("directory image size: " + directory_img.getSize()); 
 		
-    }
+        }
 
 	/**
 	 * TO DO: show jquery AJAX testing demo here. 
