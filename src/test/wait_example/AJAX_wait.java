@@ -41,7 +41,7 @@ public class AJAX_wait {
 		
         driver = new FirefoxDriver(); 
         
-        //Set implicitlyWait for page to load
+        //Set implicitlyWait, so WebDriver will wait for an element if they are not immediately available
         driver.manage().timeouts().implicitlyWait(WaitTool.DEFAULT_WAIT_4_PAGE, TimeUnit.SECONDS);
         
 	}
@@ -107,6 +107,9 @@ public class AJAX_wait {
        {
 		driver.get("http://java.bielu.com:10080"); 
 
+		//Explicitly wait for the page to load.  By waiting the main div <div id="content"> or 6 seconds
+		WaitTool.waitForElementPresent(driver, By.cssSelector("div#content"), 6); 
+		
 		//Click the button ("Image Statistics") to load AJAX page
 		driver.findElement(By.cssSelector("a[title=\"Image Statistics\"] > img")).click(); 
 
