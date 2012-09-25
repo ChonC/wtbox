@@ -29,7 +29,12 @@ import wtbox.util.WaitTool;
  * However, our WaitTool solve the complexity of implicitWait and WebDriverWait, 
  * and provides easy methods to use for everyone.  
  * 
- * This class show how to use WaitTool, and how to handle AJAX elements wait.   
+ * This class show how to use WaitTool, and how to handle AJAX elements wait. 
+ * 
+ * @author Chon Chung
+ * 
+ * Licensed under the Apache Open Source License, Version 2.0  
+ * http://www.apache.org/licenses/LICENSE-2.0
  */
 public class AJAX_wait {
 
