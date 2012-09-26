@@ -60,8 +60,7 @@ public class VimeoSignupTest_withPageObject {
 		VimeoSignupPage signupPage = new VimeoSignupPage(driver); 
 
 		//enter data
-		signupPage.enterData(first_and_LastName, 
-							 email, password);
+		signupPage.enterSignupData(first_and_LastName, email, password);
 
 		//submit form
 		signupPage.submitForm(); 
@@ -90,8 +89,7 @@ public class VimeoSignupTest_withPageObject {
 		VimeoSignupPage signupPage = new VimeoSignupPage(driver); 
 
 		//enter data
-		signupPage.enterData(first_and_LastName, 
-				             inValidEmail, password);
+		signupPage.enterSignupData(first_and_LastName, inValidEmail, password);
 
 		//submit form
 		signupPage.submitForm(); 
