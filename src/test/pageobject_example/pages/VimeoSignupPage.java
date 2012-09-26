@@ -25,7 +25,7 @@ public class VimeoSignupPage extends PageBase{
 	}
 	
 	/** Enter the sing up data. */ 
-	public void enterData(String first_and_LastName, String email, String password){
+	public void enterSignupData(String first_and_LastName, String email, String password){
 		//enter data
 		driver.findElement(By.id("name")).sendKeys(first_and_LastName);
 		driver.findElement(By.id("email")).sendKeys(email);
