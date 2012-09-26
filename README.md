@@ -28,7 +28,7 @@ WebDriver Testing Tools
 ------------------------
 Wish lists: Here are the tools I would like to add
 
-1.	HTML5_Tool: helps navigate, drag and drop, and work with 3rd party JavaScript Unit testing library (such as Qunit).
+1.	HTML5_Tool: helps to navigate, drag and drop, tests (events, json, data), and work with 3rd party JavaScript Unit testing library (such as Qunit).
 2.	Excel tool for reading and writing testcases
 3.	Take screenshot tool for errors
 4.	File tool for reading the test setting properties.
