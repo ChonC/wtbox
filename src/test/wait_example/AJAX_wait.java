@@ -58,7 +58,7 @@ public class AJAX_wait {
 	 * Testing AJAX XMLHttpRequest wait.  
 	 * I use WaitTool.waitForJavaScriptCondition() for waiting AJAX XMLHttpRequest received. 
 	 * 
-	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequest�s readState and status are changed.  
+	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequest readState and status are changed.  
      * So, we can use them as the checking condition of an AJAX call.
 	 */
 	@Test
@@ -74,7 +74,7 @@ public class AJAX_wait {
 		
 		//Wait for AJAX XMLHttpRequest received condition
 		//Note: In the called "loadXMLDoc()" function, there is "xmlhttp.readyState==4 && xmlhttp.status==200" javaScript condition. 
-		//      Upon completion of AJAX XMLHttpRequest, XMLHttpRequest�s readState and status are changed.  
+		//      Upon completion of AJAX XMLHttpRequest, XMLHttpRequest readState and status are changed.  
 		//      So, we can use them as the checking condition of an AJAX call.  
 		//      For more info: http://www.w3schools.com/ajax/ajax_xmlhttprequest_onreadystatechange.asp
 		boolean isReady = WaitTool.waitForJavaScriptCondition(driver, 
