@@ -3,6 +3,8 @@ package test.wait_example;
 
 import java.util.concurrent.TimeUnit;
 
+import junit.framework.Assert;
+
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -27,14 +29,10 @@ import wtbox.util.WaitTool;
  * and reset afterwards.  
  * 
  * However, our WaitTool solve the complexity of implicitWait and WebDriverWait, 
- * and provides easy methods to use for everyone.  
+ * and provides easy methods to use.  
  * 
- * This class show how to use WaitTool, and how to handle AJAX elements wait. 
- * 
- * @author Chon Chung
- * 
- * Licensed under the Apache Open Source License, Version 2.0  
- * http://www.apache.org/licenses/LICENSE-2.0
+ * This class shows how to use WaitTool, and how to handle AJAX elements wait. 
+ * @author Chon Chung  
  */
 public class AJAX_wait {
 
@@ -45,26 +43,23 @@ public class AJAX_wait {
 	public static void beforeClass(){
 		
         driver = new FirefoxDriver(); 
-        
-        //Set implicitlyWait, so WebDriver will wait for an element if they are not immediately available
-        driver.manage().timeouts().implicitlyWait(WaitTool.DEFAULT_WAIT_4_PAGE, TimeUnit.SECONDS);
-        
 	}
 	
 	/**
-	 * Set the properties before each test. 
+	 * Set the testing properties before each test. 
 	 **/
 	@Before
 	public void setup() {
-		
+        //Set implicitlyWait, so WebDriver will wait for an element if they are not immediately available
+		WaitTool.setImplicitWait(driver, WaitTool.DEFAULT_WAIT_4_PAGE); 
 	}
 	
 	/**
 	 * Testing AJAX XMLHttpRequest wait.  
 	 * I use WaitTool.waitForJavaScriptCondition() for waiting AJAX XMLHttpRequest received. 
 	 * 
-	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequest�s readState and status are changed.  
-         * So, we can use them as the checking condition of an AJAX call.
+	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequest’s readState and status are changed.  
+     * So, we can use them as the checking condition of an AJAX call.
 	 */
 	@Test
 	public void testW3schools_AJAX(){
@@ -79,22 +74,26 @@ public class AJAX_wait {
 		
 		//Wait for AJAX XMLHttpRequest received condition
 		//Note: In the called "loadXMLDoc()" function, there is "xmlhttp.readyState==4 && xmlhttp.status==200" javaScript condition. 
-		//      Upon completion of AJAX XMLHttpRequest, XMLHttpRequest�s readState and status are changed.  
+		//      Upon completion of AJAX XMLHttpRequest, XMLHttpRequest’s readState and status are changed.  
 		//      So, we can use them as the checking condition of an AJAX call.  
 		//      For more info: http://www.w3schools.com/ajax/ajax_xmlhttprequest_onreadystatechange.asp
-		WaitTool.waitForJavaScriptCondition(driver, "return (xmlhttp.readyState >= 2 && xmlhttp.status == 200)", 5); 
+		boolean isReady = WaitTool.waitForJavaScriptCondition(driver, 
+				                             "return (xmlhttp.readyState >= 2 && xmlhttp.status == 200)", 5); 
 		
-		
-		//Get the changed text after AJAX call
-		String afterAJAX_Call_Text = driver.findElement(By.cssSelector("div#myDiv")).getText();
-		
-
-		System.out.println("Before Text: " + originalText);
-
-		//assert not equal 
-		assertFalse("AJAX Call Changed the text", originalText.equalsIgnoreCase(afterAJAX_Call_Text)); 
-		
-		System.out.println("After AJAX call - Text: " + afterAJAX_Call_Text);
+		if (isReady){
+			//Get the changed text after AJAX call
+			String afterAJAX_Call_Text = driver.findElement(By.cssSelector("div#myDiv")).getText();
+			
+	
+			System.out.println("Before Text: " + originalText);
+	
+			//assert not equal 
+			assertFalse("AJAX Call Changed the text", originalText.equalsIgnoreCase(afterAJAX_Call_Text)); 
+			
+			System.out.println("After AJAX call - Text: " + afterAJAX_Call_Text);
+		}else{
+			Assert.fail("Verify Failed: AJAX XMLHttpRequest is not ready"); 
+		}
 		
 	}
 
@@ -109,38 +108,34 @@ public class AJAX_wait {
 	 */
 	@Test
 	public void testBielu_com_AJAX()
-       {
+    {
 		driver.get("http://java.bielu.com:10080"); 
-
-		//Explicitly wait for the page to load.  By waiting the main div <div id="content"> or 6 seconds
-		WaitTool.waitForElementPresent(driver, By.cssSelector("div#content"), 6); 
 		
-		//Click the button ("Image Statistics") to load AJAX page
+		//Click the ("Image Statistics") button to load an AJAX page
 		driver.findElement(By.cssSelector("a[title=\"Image Statistics\"] > img")).click(); 
 
 		//Wait for an AJAX Element ("Summed Images Impressions by Region") 
-		WaitTool.waitForElement(driver, By.xpath("//div[@id='statistics']/img[3]"), 5); 
-		
-		WebElement summed_img = driver.findElement(By.xpath("//div[@id='statistics']/img[3]")); 
-		
-		assertEquals("Image width" , 400, summed_img.getSize().width);  
-		assertEquals("Image height" , 250, summed_img.getSize().height);  
+		WebElement summed_img = WaitTool.waitForElement(driver, By.xpath("//div[@id='statistics']/img[3]"), 5); 
 
-		System.out.println("Summed image size: " + summed_img.getSize()); 
-		
-		
-		
 		//Wait for an AJAX Element ("Directories Visits") 
-		WaitTool.waitForElement(driver, By.xpath("//div[@id='statistics']/img[5]"),5 ); 
+		WebElement directory_img = WaitTool.waitForElement(driver, By.xpath("//div[@id='statistics']/img[5]"),5 ); 
 		
-		WebElement directory_img = driver.findElement(By.xpath("//div[@id='statistics']/img[5]")); 
+		if(summed_img != null && directory_img != null){			
+			// compare with expected values with the actual values
+			assertEquals("Image width" , 400, summed_img.getSize().width);  
+			assertEquals("Image height" , 250, summed_img.getSize().height);  
+	
+			System.out.println("Summed image size: " + summed_img.getSize()); 
+			
+			assertEquals("Image width" , 800, directory_img.getSize().width);  
+			assertEquals("Image height" , 250, directory_img.getSize().height);  
+	
+			System.out.println("directory image size: " + directory_img.getSize()); 
+		}else{
+			Assert.fail("Verify Failed: fail for waiting AJAX elements"); 
+		}
 		
-		assertEquals("Image width" , 800, directory_img.getSize().width);  
-		assertEquals("Image height" , 250, directory_img.getSize().height);  
-
-		System.out.println("directory image size: " + directory_img.getSize()); 
-		
-        }
+    }
 
 	/**
 	 * TO DO: show jquery AJAX testing demo here. 
