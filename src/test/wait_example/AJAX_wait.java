@@ -42,7 +42,7 @@ public class AJAX_wait {
 	@BeforeClass
 	public static void beforeClass(){
 		
-        driver = new FirefoxDriver(); 
+        	driver = new FirefoxDriver(); 
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class AJAX_wait {
 	 **/
 	@Before
 	public void setup() {
-        //Set implicitlyWait, so WebDriver will wait for an element if they are not immediately available
+        	//Set implicitlyWait, so WebDriver will wait for an element if they are not immediately available
 		WaitTool.setImplicitWait(driver, WaitTool.DEFAULT_WAIT_4_PAGE); 
 	}
 	
@@ -58,7 +58,7 @@ public class AJAX_wait {
 	 * Testing AJAX XMLHttpRequest wait.  
 	 * I use WaitTool.waitForJavaScriptCondition() for waiting AJAX XMLHttpRequest received. 
 	 * 
-	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequest’s readState and status are changed.  
+	 * Upon completion of AJAX XMLHttpRequest, XMLHttpRequestï¿½s readState and status are changed.  
      * So, we can use them as the checking condition of an AJAX call.
 	 */
 	@Test
@@ -74,7 +74,7 @@ public class AJAX_wait {
 		
 		//Wait for AJAX XMLHttpRequest received condition
 		//Note: In the called "loadXMLDoc()" function, there is "xmlhttp.readyState==4 && xmlhttp.status==200" javaScript condition. 
-		//      Upon completion of AJAX XMLHttpRequest, XMLHttpRequest’s readState and status are changed.  
+		//      Upon completion of AJAX XMLHttpRequest, XMLHttpRequestï¿½s readState and status are changed.  
 		//      So, we can use them as the checking condition of an AJAX call.  
 		//      For more info: http://www.w3schools.com/ajax/ajax_xmlhttprequest_onreadystatechange.asp
 		boolean isReady = WaitTool.waitForJavaScriptCondition(driver, 
@@ -108,7 +108,7 @@ public class AJAX_wait {
 	 */
 	@Test
 	public void testBielu_com_AJAX()
-    {
+    	{
 		driver.get("http://java.bielu.com:10080"); 
 		
 		//Click the ("Image Statistics") button to load an AJAX page
@@ -135,7 +135,7 @@ public class AJAX_wait {
 			Assert.fail("Verify Failed: fail for waiting AJAX elements"); 
 		}
 		
-    }
+    	}
 
 	/**
 	 * TO DO: show jquery AJAX testing demo here. 
