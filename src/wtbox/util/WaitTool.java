@@ -49,8 +49,7 @@ public class WaitTool {
 	  *
 	  * @return WebElement	return the element, or null
 	  */
-	public static WebElement waitForElement(WebDriver driver, 
-									  final By by, int timeOutInSeconds) {
+	public static WebElement waitForElement(WebDriver driver, final By by, int timeOutInSeconds) {
 		WebElement element; 
 		try{	
 			//To use WebDriverWait(), we would have to nullify implicitlyWait(). 
@@ -81,8 +80,7 @@ public class WaitTool {
 	  * 
 	  * @return WebElement	return the element, or null
 	  */
-	public static WebElement waitForElementPresent(WebDriver driver, 
-									  		 final By by, int timeOutInSeconds) {
+	public static WebElement waitForElementPresent(WebDriver driver, final By by, int timeOutInSeconds) {
 		WebElement element; 
 		try{
 			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
@@ -105,7 +103,7 @@ public class WaitTool {
 	  * This method is to deal with dynamic pages.
 	  * 
 	  * Some sites I (Mark) have tested have required a page refresh to add additional elements to the DOM.  
-	  * Generally you (Chon) wouldn’t need to do this in a typical AJAX scenario.
+	  * Generally you (Chon) wouldnï¿½t need to do this in a typical AJAX scenario.
 	  * 
 	  * @param WebDriver	The driver object to use to perform this element search
 	  * @param locator	The XPath of the element you are waiting for
@@ -147,8 +145,7 @@ public class WaitTool {
 	  * 
 	  * @return boolean 
 	  */
-	public static boolean waitForTextPresent(WebDriver driver, 
-			                              final String text, int timeOutInSeconds) {
+	public static boolean waitForTextPresent(WebDriver driver, final String text, int timeOutInSeconds) {
 		boolean isPresent = false; 
 		try{	
 			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
