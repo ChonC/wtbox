@@ -1,7 +1,7 @@
 wtbox
 =====
 
-Web Testing ToolBox: Selenium WebDriver 2.0 Java best practices project. 
+Web Testing Box: Selenium WebDriver 2.0 Java best practices project. 
 
 This project shows Selenium WebDriver best practices, and provides easy to uses tools for the practices.  
 It is currently written in Java.  You are welcome to fork to other languages.  
@@ -26,17 +26,18 @@ Our project goal is to show each of the following best practices in 10 minues:
 
 WebDriver Testing Tools
 ------------------------
- 
-1.	Take screenshot tool for errors 
-2.	Excel tool for reading and writing testcases: 
-3.	File tool for reading the test setting properties. 
+Wish lists: Here are the tools I would like to add
 
+1.	HTML5_Tool: helps to navigate, drag and drop, tests (events, json, data), and work with 3rd party JavaScript Unit testing library (such as Qunit).
+2.	Excel tool for reading and writing testcases
+3.	Take screenshot tool for errors
+4.	File tool for reading the test setting properties.
 
 
 Project Goals
 -------------
 
-1.	Show and teach in 10 minutes (simple and effective)
+1.	Show and teach a lesson in 10 minutes (simple and effective)
 2.	Easy to learn and use – so even a tester with little programming background can use it
 	(Java is a good language for web development, but it is not the popular web development solution compare to php or ruby.  Because most Java web solutions are towards for enterprise applications (humongous, and require steep learning curve to learn).   
          However our testing project is for an average tester not for a developer.  So, let’s make easy, less technical but more practical for testing job done.)   
