@@ -103,7 +103,7 @@ public class WaitTool {
 	  * This method is to deal with dynamic pages.
 	  * 
 	  * Some sites I (Mark) have tested have required a page refresh to add additional elements to the DOM.  
-	  * Generally you (Chon) wouldn�t need to do this in a typical AJAX scenario.
+	  * Generally you (Chon) wouldn't need to do this in a typical AJAX scenario.
 	  * 
 	  * @param WebDriver	The driver object to use to perform this element search
 	  * @param locator	The XPath of the element you are waiting for
