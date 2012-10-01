@@ -16,6 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static junit.framework.Assert.*;
 
+import wtbox.util.TimeTool;
 import wtbox.util.WaitTool;
 
 /**
@@ -30,6 +31,9 @@ import wtbox.util.WaitTool;
  * 
  * However, our WaitTool solve the complexity of implicitWait and WebDriverWait, 
  * and provides easy methods to use.  
+ * 
+ * Generally relying on implicitlyWait slows things down 
+ * so use WaitTool’s explicit wait methods as much as possible.
  * 
  * This class shows how to use WaitTool, and how to handle AJAX elements wait. 
  * @author Chon Chung  
@@ -142,6 +146,56 @@ public class AJAX_wait {
 	 */
 	public void testJquery4u_AJAX(){
 		//driver.get("http://www.jquery4u.com/function-demos/ajax"); 
+	}
+	
+	/**
+	 * Testing WaitTool class. Does WaitTool really work? 
+	 * 
+	 * This test verify 3 things: 
+	 * 1.	Test if the WaitTool method only wait for the given wait time.  
+	 *      and implicitlyWait setting does not effect on WaitTool's wait time. 
+	 *  
+	 * 2.	Test performance: how long does it takes calling driver-implicitlyWait 100 times.
+	 * 
+	 * 3.   Verify reset implicitlyWait() does actually work:
+	 * 
+     **/
+	@Test 
+	public void testWaitTool_class(){
+		System.out.println("test WaitTool_class-----------------------------------------");
+			driver.get("https://www.google.com/"); 
+	
+			//test if the WaitTool method only wait for the given amount wait time.  
+			// and implicitlyWait setting does not effect on WaitTool's wait time. 
+			System.out.println("Test WaitTool.waitForElement: 3 seconds wait time =========");
+			System.out.println("	time before WaitTool.waitForElement: " + TimeTool.getCurrentTime()); 			
+				//wait for 3 seconds: 
+				WaitTool.waitForElement(driver, By.cssSelector("div#really_long_id_should_not_in_a_page__blar_blar_blar"), 3); 
+			System.out.println("	time  after WaitTool.waitForElement: " + TimeTool.getCurrentTime()); 
+			System.out.println(""); 
+			
+			
+			//test performance: how long does it takes calling driver-implicitlyWait 100 times.
+			System.out.println("Test performance: calling driver-implicitlyWait 100 times=========");
+			System.out.println("	time before calling: " + TimeTool.getCurrentTime()); 
+				for (int i = 0; i < 50; i++){
+					//resetImplicitWait call driver-implicitlyWait() 2 times(nullify and set). 
+					WaitTool.resetImplicitWait(driver, i);
+				}
+			System.out.println("	time  after calling: " + TimeTool.getCurrentTime()); 
+			System.out.println("");
+			
+			//Test reset implicitWait
+			WaitTool.resetImplicitWait(driver, 2);
+			System.out.println("Test resetImplicitWait (given wait time = 2 seconds) =========");
+			System.out.println("	time before: " + TimeTool.getCurrentTime()); 
+				try{
+					//check how long implicitlyWait() do actually wait
+					driver.findElement(By.id("really_long_id_should_not_in_a_page__blar_blar_blar")); 
+				}catch (Exception e){}
+			System.out.println("	time  after: " + TimeTool.getCurrentTime()); 
+			System.out.println("");
+		System.out.println("test WaitTool_class-----------------------------------------");
 	}
 	
 	@AfterClass
