@@ -53,10 +53,10 @@ public class GoogleSearch_withPageObject {
     
     public static void testGoogleSuggest() throws Exception {
 		
-		GoogleSearchSuggestPage googleSuggestPage = new GoogleSearchSuggestPage(new FirefoxDriver());
+	GoogleSearchSuggestPage googleSuggestPage = new GoogleSearchSuggestPage(new FirefoxDriver());
         
         // Go to the Google Suggest home page: "http://www.google.com/webhp?complete=1&hl=en"
-		googleSuggestPage.open();  
+	googleSuggestPage.open();  
         
         // Enter the query string "Cheese", and get the list the suggestions
         List<WebElement> allSuggestions = googleSuggestPage.getSearchSuggestions("Cheese");
