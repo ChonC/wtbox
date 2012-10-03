@@ -59,7 +59,7 @@ public class VimeoSignupTest_withPageObject {
 		//Get the testing data
 		getTestingData(); 
 		//delete all previous cookies set by the page sign up process
-        driver.manage().deleteAllCookies();  
+        	driver.manage().deleteAllCookies();  
 		//Set implicitlyWait
 		WaitTool.setImplicitWait(driver, 30); 
 	}
