@@ -66,40 +66,40 @@ public class VimeoJoinPage extends PageBase{
 	 * Verify the error message of name field is displayed. 
 	 */
 	public boolean verifyErrorMessageRequired_Name_displayed() {  		
-        return isErrorMessageOfField_display(By.id("advice-required-name"));       
-    } 
+        	return isErrorMessageOfField_display(By.id("advice-required-name"));       
+    	} 
 	
 
 	/** 
 	 * Verify the Require email error message is displayed.
 	 */
 	public boolean isErrorMessageRequired_Email_displayed() {    
-        return isErrorMessageOfField_display(By.id("advice-required-email"));         
-    } 
+        	return isErrorMessageOfField_display(By.id("advice-required-email"));         
+    	} 
 	
 
 	/** 
 	 * Verify the Require Valid email error message is displayed.
 	 */
 	public boolean verifyErrorMessageRequired_ValidEmail_displayed() {    
-        return isErrorMessageOfField_display(By.id("advice-validate-email-email"));       
-    } 
+        	return isErrorMessageOfField_display(By.id("advice-validate-email-email"));       
+    	} 
 	
 
 	/**
 	 * Verify the error message of password field is displayed. 
 	 */
 	public boolean verifyErrorMessageRequired_Password_displayed() { 
-        return isErrorMessageOfField_display(By.id("advice-required-password")); 
-    } 
+        	return isErrorMessageOfField_display(By.id("advice-required-password")); 
+    	} 
 	
 
 	/**
 	 * Verify the error message of "I accept Terms of Service" is displayed.
 	 */
 	public boolean isErrorMessageRequired_Check_TOS_displayed() { 
-        return isErrorMessageOfField_display(By.id("advice-validate-required-check-tos"));           
-    } 
+        	return isErrorMessageOfField_display(By.id("advice-validate-required-check-tos"));           
+    	} 
 	
 	/**
 	 * Check the Error Message field displayed.  
