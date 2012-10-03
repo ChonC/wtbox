@@ -15,23 +15,45 @@ import org.openqa.selenium.WebElement;
  */
 public class PageBase {
 	  /** Default URL */
-	  protected static String URL;	
+	  protected String URL;	
+	  
 	  /** This page's WebDriver */ 
 	  protected WebDriver driver; 
 	  
+	  /** Expected Page Title.  This will be used in isPageLoad() 
+	   * to check if page is loaded. */
+	  protected String pageTitle; 
+	  
+	  
 	  /** Constructor */ 
-	  public PageBase(WebDriver driver) {
+	  public PageBase(WebDriver driver, String pageTitle) {
 		  this.driver = driver; 
+		  this.pageTitle = pageTitle; 
 	  }
+	  
+	  /** 
+	   * Check if page is loaded by comparing 
+	   * the expected page-title with an actual page-title. 
+	   **/ 
+	  public boolean isPageLoad(){
+		  return (driver.getTitle().contains(pageTitle)); 
+	  }
+	  
 	  
 	  /** Open the default page */ 
 	  public void open(){
 		  driver.get(URL); 
 	  }
 	  
+	  
 	  /** Returns the page title */ 
 	  public String getTitle() {
-		  return driver.getTitle(); 
+		  return pageTitle; 
+	  }
+	  
+	  /** Returns the default URL */ 
+	  public String getURL() {
+		return URL;
 	  }
 	  
 	  /** 
@@ -60,7 +82,7 @@ public class PageBase {
 	  }
 
 	  /** 
-	   * Is the Element present in page 
+	   * Is the Element present in the DOM. 
 	   * 
 	   * @param _cssSelector 		element locater
 	   * @return					WebElement
@@ -69,6 +91,21 @@ public class PageBase {
 			try {
 				driver.findElement(By.cssSelector(_cssSelector));
 				return true;
+			} catch (NoSuchElementException e) {
+				return false;
+			}
+	  }
+	  
+
+	  /**
+		* Checks if the elment is in the DOM and displayed. 
+		* 
+		* @param by - selector to find the element
+		* @return true or false
+		*/
+	  public boolean isElementPresentAndDisplay(By by) {
+			try {			
+				return driver.findElement(by).isDisplayed();
 			} catch (NoSuchElementException e) {
 				return false;
 			}
@@ -86,9 +123,10 @@ public class PageBase {
 }
 /**
  * Further reading: 
- * 1. Using Page Objects with Selenium and Web Driver 2.0
+ * 1. Selenium webdriver page object: 
+ * 		http://stackoverflow.com/questions/10315894/selenium-webdriver-page-object
+ * 2. Using Page Objects with Selenium and Web Driver 2.0
  * 		http://www.summa-tech.com/blog/2011/10/10/using-page-objects-with-selenium-and-web-driver-20/
- * 2. PageFactory
+ * 3. PageFactory
  * 		http://code.google.com/p/selenium/wiki/PageFactory
- * 		
  */

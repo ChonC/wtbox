@@ -11,11 +11,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Google search demo class.  This example is modified from 
+ * Google search demo class.  This example is from 
  * "The 5 Minute Getting Started Guide 
  *  (http://code.google.com/p/selenium/wiki/GettingStarted)."  
- * 
- * @author Chon Chung
  *
  */
 public class GoogleSearch {
@@ -69,7 +67,7 @@ public class GoogleSearch {
 	        // Sleep until the div we want is visible or 5 seconds is over
 	        long end = System.currentTimeMillis() + 5000;
 	        while (System.currentTimeMillis() < end) {
-	            WebElement resultsDiv = driver.findElement(By.className("gac_m"));
+	            WebElement resultsDiv = driver.findElement(By.className("gsq_a"));
 
 	            // If results have been returned, the results are displayed in a drop down.
 	            if (resultsDiv.isDisplayed()) {
@@ -78,7 +76,7 @@ public class GoogleSearch {
 	        }
 
 	        // And now list the suggestions
-	        List<WebElement> allSuggestions = driver.findElements(By.xpath("//td[@class='gac_c']"));
+	        List<WebElement> allSuggestions = driver.findElements(By.className("gsq_a"));
 	        
 	        for (WebElement suggestion : allSuggestions) {
 	            System.out.println(suggestion.getText());

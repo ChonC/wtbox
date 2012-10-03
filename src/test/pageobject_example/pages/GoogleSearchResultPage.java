@@ -14,15 +14,11 @@ import wtbox.util.WaitTool;
 public class GoogleSearchResultPage extends PageBase{
 	
 	private static final String resultStats_id = "resultStats"; 
+	private final static String pageTitle = "Google Search"; 
 	
-	/**
-	 * Constructor. It wait for the page to load by using WaitTool method. 
-	 * @param driver
-	 */
+	
 	public GoogleSearchResultPage(WebDriver driver){
-		super(driver); 
-		//wait for the page to load by waiting of google-search-resultStat 
-		WaitTool.waitForElement(driver, By.id(resultStats_id), 5); 		
+		super(driver, pageTitle); 	
 	}
 	
 	

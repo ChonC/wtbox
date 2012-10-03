@@ -13,8 +13,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import wtbox.util.WaitTool;
-
 
 /**
  * Testing Vimeo.com Sign up pages.  
@@ -26,7 +24,6 @@ public class VimeoSignupTest {
 
 	private static WebDriver driver;
 	private static final String INPUT_TYPE_SUBMIT = "input[type=submit][value=Join]";	
-	private static final String URL = "http://vimeo.com/join";
 
 
 	//testing input data: 
@@ -36,10 +33,8 @@ public class VimeoSignupTest {
 	
 	/** Initialized class properties before excuting this class. */ 
 	@BeforeClass
-	public static void initialize(){
+	public static void initializeClass(){
 		driver = new FirefoxDriver();
-
-		driver.manage().timeouts().implicitlyWait(9, TimeUnit.SECONDS); //set implicitlyWait
 		
 	}
 	
@@ -47,15 +42,18 @@ public class VimeoSignupTest {
 	 * Set up test properties before each test. 
 	 **/
 	@Before
-	public void setup() {
-		driver.get(URL); 
+	public void setupTest() {
 		getTestingData(); 
 		//delete all previous cookies set by the page 
         driver.manage().deleteAllCookies();  
+        //set implicitlyWait
+		driver.manage().timeouts().implicitlyWait(9, TimeUnit.SECONDS); 
 	}
 	
 	@Test
 	public void testSignupSuccess(){
+		//go to join page
+		driver.get("http://vimeo.com/join"); 
 		
 		//enter data
 		driver.findElement(By.id("name")).sendKeys(first_and_LastName);
@@ -66,25 +64,36 @@ public class VimeoSignupTest {
 		//submit form
 		driver.findElement(By.cssSelector(INPUT_TYPE_SUBMIT)).click();
 		
+
+		//Verify signup success: signup page title should be "You just joined Vimeo. Nice work!"
+		String pageTitle = driver.getTitle(); 
+		assertTrue("Verify: Sign up successful" , pageTitle.equalsIgnoreCase("You just joined Vimeo. Nice work!")); 
+		
 		//Clicking "Me" button, and go to the profile page
 		driver.findElement(By.xpath("//*[@id='menu']/li[1]/a")).click(); 
 		//Get the profile name: <span>name</span> 
 		String userName = driver.findElement(By.xpath("//*[@id='profile']/div[2]/h1/span")).getText(); 
 		
-		//Success: validate the displayed Name
-		assertEquals("The user name should be equal.", first_and_LastName, userName); 
+		//Verify data: the Profile user Name should be equal
+		assertEquals("Verify: the Profile user Name should be equal", first_and_LastName, userName); 
 		
 		
 		//logout for the next test. 
 		driver.get("https://vimeo.com/log_out"); 
-		
 	}
 	
 
 	
 
+	/**
+	 * Test the signup page with invalid-format-email address.
+	 * Expected result: "Please enter a valid email address" displayed 
+	 */
 	@Test
 	public void testSignupInvalidEmailErrors(){
+		//go to join page
+		driver.get("http://vimeo.com/join"); 
+		
 		//invalid-format-email address
 		String inValidEmail = "chon.email.com"; 
 		
@@ -101,7 +110,38 @@ public class VimeoSignupTest {
 		
 		//verify the Valid Email error message is displayed
 		assertTrue(driver.findElement(By.id("advice-validate-email-email")).isDisplayed());
+		assertTrue(driver.findElement(By.id("advice-validate-email-email"))
+				                      .getText().equalsIgnoreCase("Please enter a valid email address")); 
 
+		//logout for the next test. 
+		driver.get("https://vimeo.com/log_out"); 
+	}
+	
+	/** 
+	 *  Test the signup page with missing password. 
+	 *  Expected result: "Please enter your password" displayed 
+	 */
+	@Test
+	public void testSignupNo_password(){
+		//go to join page
+		driver.get("http://vimeo.com/join"); 
+		//enter data
+		driver.findElement(By.id("name")).sendKeys(first_and_LastName);
+		driver.findElement(By.id("email")).sendKeys(email);//invalid-email address
+		
+		//No password input
+		
+		driver.findElement(By.id("tos")).click(); //"I accept" check box 
+		//submit form
+		driver.findElement(By.cssSelector(INPUT_TYPE_SUBMIT))
+				.click();
+		//Verify the require password message displayed
+		assertTrue(driver.findElement(By.id("advice-required-password")).isDisplayed());
+		assertTrue(driver.findElement(By.id("advice-required-password"))
+				   .getText().equalsIgnoreCase("Please enter your password"));
+				
+		//logout for the next test. 
+		driver.get("https://vimeo.com/log_out"); 
 	}
 	
 	@AfterClass
