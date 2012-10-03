@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Page Objects in Selenium 2 (WebDriver). </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+		
+        
+        <!-- Google Webfonts and our stylesheet -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow|Open+Sans:300" />
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+	</head>
+	<body >
+
+		<div id="impress" class="impress-not-supported">
+			
+			<div id="intro" class="step" data-x="0" data-y="0">
+                <h2>Page Objects in Selenium 2 (WebDriver).</h2>
+                <img src="assets/images/wtbox.png"  width="374" height="178" alt="Web Testing box" />
+                <p class='hint_text'>Press <em>Spacebar</em> or Tab To Get Started</p>
+                <p id="note"> To view this presentation please use the latest <b>Firefox</b>, <b>Chrome</b>, or <b>Safari</b> browser.</p>
+      </div>
+            
+      <div id="slide2" class="step" data-x="1100" data-y="1200" data-scale="1.8" data-rotate="190">
+      
+                <h2>Inspired by </h2>
+                
+                <img src="assets/images/pageobject.png"  width="455" height="336" alt="page objects" />
+                
+                <p>This project is inspired by: <br/>
+                    
+                   Ben Burton's <a href="http://benburton.github.com/presentations/webdriver-best-practices/"  target="_blank">WebDriver Best Practices</a>  <br/>
+                   Dave Justin’s <a href="http://stackoverflow.com/questions/10315894/selenium-webdriver-page-object"  target="_blank">page object post</a>  <br/>
+                   James Cox's <a href="http://www.summa-tech.com/blog/2011/10/10/using-page-objects-with-selenium-and-web-driver-20/" target="_blank">Using Page Objects</a>  <br /> 
+                   <a href=" "  target="_blank"></a>  <br/>
+                </p>
+      </div>
+           
+      <div id="slide3" class="step" data-x="1200">
+                <h2>Why Page Objects pattern?   </h2>
+
+ 
+                <p>Reduces the amount of duplicated code.  
+                      &nbsp; Encapsulate the internal state of a page into a single page object.<br/><br/>
+                   UI changes only affect to a single Page Object, not to the actual test codes. <br/><br/>
+                   Code re-use:  Able to use the same page object in a variety of tests cases. <br/>
+</p>	
+      </div>
+			<div id="slide4" class="step" data-x="2200" data-y="500">
+                <h2> <span id="code">Step 1:</span> Page Object base class.  </h2>
+                <p>PageBase class provides the base structure and properties of a page object to extend. </p> 
+                
+                <img src="assets/images/pagebase.png"  width="376" height="272" alt="pagebase.java" />
+
+      </div>
+			<div id="slide5" class="step" data-x="3200" data-y="500">
+                <h2> <span id="code">Step 2:</span> Extends PagaBase  </h2>
+                
+                <img src="assets/images/joinpage.png"  width="454" height="365" alt="extends PageBase" />
+	
+      </div>
+      
+			<div id="slide6" class="step" data-x="4200" data-y="500">
+                <h2><span id="code">Step 3:</span> Navigation from Page to Page </h2>
+
+ 
+                <p>1.	When you're simulating having the user enter a new URL into the URL bar of the browser, then it's the responsibility of the test class to create the page object it needs.</p>
+                
+                <img src="assets/images/gotoGoogle.png"  width="625" height="160" alt="test class" />
+	
+      </div>
+      
+
+			<div id="slide8" class="step" data-x="6200" data-y="500">
+                
+                <p>2.	some operation on the page that would cause the browser to point to another page -- for example, clicking a link or submitting a form -- then it's the responsibility of that page object to return the next page object.</p>
+                
+                <img src="assets/images/page2page.png"  width="675" height="347" alt="page to page navigation" />
+	
+      </div>
+      
+			<div id="slide9" class="step" data-x="7200" data-y="500">
+                <h2><span id="code">Step 4:</span> Tests with Page Objects  </h2>
+                
+                <img src="assets/images/test.png"  width="632" height="326" alt="page object test example" />
+	
+      </div>
+      
+
+      <div id="slide10" class="step" data-x="8200" data-rotate="150">
+                <h2>Here are the source codes </h2>
+                <p>Project Home: <a href="https://github.com/ChonC/wtbox"  target="_blank">https://github.com/ChonC/wtbox</a><br/>
+                   wiki: <a href="https://github.com/ChonC/wtbox/wiki" target="_blank"> https://github.com/ChonC/wtbox/wiki</a><br/>
+                   <a href="https://github.com/ChonC/wtbox/tree/master/src/wtbox/pages" target="_blank">PageBase source code</a><br/>
+                   <a href="https://github.com/ChonC/wtbox/tree/master/src/test/pageobject_example" target="_blank">Page Objects test example</a><br/><br/><br/>
+                   Thank you!<br/><br/><br/>
+                   Chon Chung<br/>
+                </p>
+                
+	
+      </div>
+ 
+		
+		</div>
+		
+		
+		<a id="arrowLeft" class="arrow">&lt;</a>
+		<a id="arrowRight" class="arrow">&gt;</a>
+
+        <footer>
+	        <h2><i>Tutorial:</i> Page Objects in Selenium 2 (WebDriver).</h2>
+            <a class="wtboxlink" href="https://github.com/ChonC/wtbox/">Go to  <b>github</b> to download the <i> wtbox </i></a>
+            
+        </footer>
+        <!-- JavaScript includes -->
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="assets/js/impress.js"></script>
+		<script type="text/javascript">impress().init();</script>
+		<script src="assets/js/script.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+	<head>
+		<title>How to handle elements and AJAX wait in Selenium 2 (WebDriver). </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+		
+        
+        <!-- Google Webfonts and our stylesheet -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow|Open+Sans:300" />
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+	</head>
+	<body >
+
+		<div id="impress" class="impress-not-supported">
+			
+			<div id="intro" class="step" data-x="0" data-y="0">
+                <h2>How to handle elements and AJAX wait in Selenium 2 (WebDriver).</h2>
+                <img src="assets/images/wtbox.png"  width="374" height="178" alt="Web Testing box" />
+                <p class='hint_text'>Press <em>Spacebar</em> or Tab To Get Started</p>
+                <p id="note"> To view this presentation please use the latest <b>Firefox</b>, <b>Chrome</b>, or <b>Safari</b> browser.</p>
+      </div>
+            
+      <div id="slide2" class="step" data-x="1100" data-y="1200" data-scale="1.8" data-rotate="190">>
+                <h2>The best practice is to set <span id="code">implicitlyWait()</span> at the beginning of each test, 
+                   and use <span id="code">WebDriverWait()</span> for waiting an element, or AJAX element to load. </h2>
+
+                <p><span id="code">implicitlyWait()</span>: tells WebDriver to wait for an element if they are not immediately available.  
+                   So, WebDriver does not throw NoSuchElementException immediately.  <br/><br/><br/>
+
+                   <span id="code">WebDriverWait()</span>: checks for the given condition every 500 milliseconds 
+                   until it returns successfully or timeout.  </p>
+      </div>
+           
+      <div id="slide3" class="step" data-x="1200">
+                <h2>However, implicitlyWait() and WebDriverWait() do not work well together in the same test.  </h2>
+
+ 
+                <p>You would have to nullify implicitlyWait() before calling WebDriverWait 
+                because implicitlyWait() also sets the "driver.findElement()" wait time.<br/><br/><br/>
+
+
+                confusing isn't it</p>	
+      </div>
+			<div id="slide4" class="step" data-x="2200" data-y="500">
+                <h2> WaitTool </h2>
+                <p>So, I create WaitTool  <br/><br/>
+                WaitTool solves the complexity of ImplicitWait and WebDriverWait, and provides easy methods to use.</p> 
+                
+                <img src="assets/images/waittool.png"  width="491" height="203" alt="WaitTool.java" />
+
+      </div>
+			<div id="slide5" class="step" data-x="3200" data-y="500">
+                <h2>WaitTool handles  the following tasks at the behind scene. </h2>
+                <p>1. nullifying <span id="code">implicitlyWait()</span> <br/>
+                   2. executing	<span id="code">WebDriverWait ()</span>, and return element<br/>
+                   3. reset <span id="code">implicitlyWait()</span> again<br/>
+                </p>
+                
+                <img src="assets/images/waitmethod.png"  width="616" height="243" alt="wait meethod" />
+	
+      </div>
+      
+			<div id="slide6" class="step" data-x="4200" data-y="500">
+                <h2>Let’s test a AJAX Site. </h2>
+                <p>1. Go to page: <span id="code">www.w3schools.com/ajax/default.asp</span> <br/>
+                   2. click  the button to call AJAX<br/>
+                   3. See the text change<br/>
+                </p>
+                
+                <img src="assets/images/screen1.png"  width="541" height="369" alt="go to w3schools page" />
+	
+      </div>
+      
+			<div id="slide7" class="step" data-x="5200" data-y="500">
+                <h2>At the beginning of a test, set implicitlyWait()  </h2>
+                
+                <img src="assets/images/screen2.png"  width="610" height="184" alt="set implicitlyWait" />
+	
+      </div>
+      
+
+			<div id="slide8" class="step" data-x="6200" data-y="500">
+                <p>1. Go to the page<br/>
+                   2. click  the button to call AJAX<br/>
+                   3. Use <span id="code">WaitTool.waitForJavaScriptCondition()</span><br/>
+                   4. See the text change<br/>
+                </p>
+                
+                <img src="assets/images/screen3.png"  width="625" height="246" alt="go to w3schools page" />
+	
+      </div>
+
+      <div id="slide10" class="step" data-x="8200" data-rotate="150">
+                <h2>Here are the source codes </h2>
+                <p>Project Home: <a href="https://github.com/ChonC/wtbox"  target="_blank">https://github.com/ChonC/wtbox</a><br/>
+                   wiki: <a href="https://github.com/ChonC/wtbox/wiki" target="_blank"> https://github.com/ChonC/wtbox/wiki</a><br/>
+                   <a href="https://github.com/ChonC/wtbox/blob/master/src/wtbox/util/WaitTool.java" target="_blank">WaitTool source code</a><br/>
+                   <a href="https://github.com/ChonC/wtbox/blob/master/src/test/wait_example/AJAX_wait.java" target="_blank">AJAX wait example</a><br/><br/><br/>
+                   Thank you!<br/><br/><br/>
+                   Chon Chung<br/>
+                </p>
+                
+	
+      </div>
+ 
+		
+		</div>
+		
+		
+		<a id="arrowLeft" class="arrow">&lt;</a>
+		<a id="arrowRight" class="arrow">&gt;</a>
+
+        <footer>
+	        <h2><i>Tutorial:</i> How to handle AJAX wait in Selenium 2 (WebDriver).</h2>
+            <a class="wtboxlink" href="https://github.com/ChonC/wtbox/">Go to  <b>github</b> to download the <i> wtbox </i></a>
+            
+        </footer>
+        <!-- JavaScript includes -->
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="assets/js/impress.js"></script>
+		<script type="text/javascript">impress().init();</script>
+		<script src="assets/js/script.js"></script>
+
+	</body>
+</html>
