@@ -45,8 +45,8 @@ public class VimeoSignupTest {
 	public void setupTest() {
 		getTestingData(); 
 		//delete all previous cookies set by the page 
-        driver.manage().deleteAllCookies();  
-        //set implicitlyWait
+        	driver.manage().deleteAllCookies();  
+        	//set implicitlyWait
 		driver.manage().timeouts().implicitlyWait(9, TimeUnit.SECONDS); 
 	}
 	
