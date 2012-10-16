@@ -1,7 +1,7 @@
 wtbox
 =====
 
-Web Testing Box: Selenium WebDriver 2.0 Java best practices project. 
+Web Testing Box: Selenium WebDriver best practices project. 
 
 This project shows Selenium WebDriver best practices, and provides easy to uses tools for the practices.  
 It is currently written in Java.  You are welcome to fork to other languages.  
