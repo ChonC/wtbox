@@ -7,6 +7,29 @@ This project shows Selenium WebDriver best practices, and provides easy to uses 
 It is currently written in Java.  You are welcome to fork to other languages.  
 
 
+## **Lesson 1:**
+[![Selenium 2.0 WebDriver AJAX Wait Presentation](http://chon.techliminal.com/images/ajax_wait.png)](http://chon.techliminal.com/ajax_wait/)
+<br/> 
+<br/> 
+<br/> 
+<br/> 
+
+
+
+
+## **Lesson 2: **
+
+[![Page Objects in Selenium 2 (WebDriver)](http://chon.techliminal.com/images/page_object.png)](http://chon.techliminal.com/page_object/)
+
+<br/> 
+<br/> 
+<br/> 
+<br/> 
+<br/> 
+
+
+
+
 
 
 Teach WebDriver 2.0 best practices in 10 minutes
