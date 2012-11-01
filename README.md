@@ -72,6 +72,33 @@ Project Goals
 
 Credits
 -------
-Inspired by the following projects: 
-1.	[Ben Burton’s WebDriver Best Practice](https://github.com/benburton/presentations)
-2.	[Mark Collin's Wait Method](https://groups.google.com/forum/?fromgroups#!topic/webdriver/V9KqskkHmIs%5B1-25%5D)
+Inspired by the following projects:  
+<br/>
+    <table>
+  <tr height="207" valign="top">
+    <td><a href="https://github.com/benburton/presentations"><img src="http://chon.techliminal.com/images/inspired/benburton.png" width="202">
+        <br/><br/>Ben Burton’s<br/>
+             WebDriver presentation
+        </a>
+    </td>
+    <td><a href="https://groups.google.com/forum/?fromgroups#!topic/webdriver/V9KqskkHmIs%5B1-25%5D"><img src="http://chon.techliminal.com/images/inspired/mark_collin.png" width="202">
+        <br/><br/>Mark Collin's<br/>
+             Wait Method
+        </a>
+    </td>
+    <td><a href="http://stackoverflow.com/questions/10315894/selenium-webdriver-page-object"><img src="http://chon.techliminal.com/images/inspired/dave.png" width="202">
+        <br/><br/>Dave Justin’s <br/>
+             page object post 
+        </a>
+    </td>
+    <td><a href="http://www.summa-tech.com/blog/2011/10/10/using-page-objects-with-selenium-and-web-driver-20/"><img src="http://chon.techliminal.com/images/inspired/james.png" width="202">
+        <br/><br/><br/><br/>James Cox's<br/>
+             Using Page Objects 
+        </a>
+    </td>
+  </tr>
+  <tr height="207" valign="top">
+  <td colspan="4">
+    <img src="http://chon.techliminal.com/images/inspired/i_curate.png" width="672">&nbsp;
+  </td>
+</table>
