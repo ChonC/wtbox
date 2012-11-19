@@ -99,6 +99,6 @@ Inspired by the following projects:
   </tr>
   <tr height="207" valign="top">
   <td colspan="4">
-    <img src="http://chon.techliminal.com/images/inspired/i_curate.png" width="672">&nbsp;
+    <img src="http://chon.techliminal.com/images/inspired/i_curate.png" width="876">&nbsp;
   </td>
 </table>
