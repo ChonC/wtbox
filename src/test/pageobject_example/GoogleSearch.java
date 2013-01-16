@@ -11,7 +11,10 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Google search demo class.  This example is from 
+ * Testing Google search.  This class does not use Page Object pattern.  
+ * Compare it with “GoogleSearch_withPageObject.java” class, which uses Page Object pattern.  
+ * 
+ * This example is from 
  * "The 5 Minute Getting Started Guide 
  *  (http://code.google.com/p/selenium/wiki/GettingStarted)."  
  *
