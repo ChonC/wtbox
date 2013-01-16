@@ -15,7 +15,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 /**
- * Testing Vimeo.com Sign up pages.  
+ * Testing Vimeo.com Sign up pages.  This class does not use Page Object pattern.  
+ * Compare it with “VimeoSignupTest_withPageObject.java” class, which uses Page Object pattern.  
  * 
  * @author Chon Chung
  *
