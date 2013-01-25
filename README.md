@@ -3,8 +3,8 @@ wtbox
 
 Web Testing Box: Selenium WebDriver best practices project. 
 
-This project shows Selenium WebDriver best practices, and provides easy to uses tools for the practices.  
-It is currently written in Java.  You are welcome to fork to other languages.  
+This project shows Selenium WebDriver best practices; it is a minimalistic Selenium project that makes Selenium tools easy to learn and use, and it gets the job done.  
+<br/>It is currently written in Java.  You are welcome to fork to other languages.  
 
 
 ## **Lesson 1: Selenium 2 WebDriver Waits**
