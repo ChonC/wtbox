@@ -1,6 +1,6 @@
 wtbox
 =====
-[![Web Testing Box logo ](http://chon.techliminal.com/images/shelby_logo.png)
+![Web Testing Box logo ](http://chon.techliminal.com/images/shelby_logo.png)
 <br/><br/>
 Web Testing Box: Selenium WebDriver best practices project. 
 
