@@ -1,6 +1,7 @@
 wtbox
 =====
-
+[Web Testing Box logo ](http://chon.techliminal.com/images/shelby_logo.png)
+<br/><br/>
 Web Testing Box: Selenium WebDriver best practices project. 
 
 This project shows Selenium WebDriver best practices; it is a minimalistic Selenium project that makes Selenium tools easy to learn and use, and it gets the job done.  
